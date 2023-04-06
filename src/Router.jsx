@@ -6,7 +6,7 @@ import Layout from './Layout';
 import DocumentManagement from './pages/document/DocumentManagement';
 import DocumentCreateAndEdit from './pages/document/DocumentCeateAndEdit';
 import DocumentAllEdit from './pages/document/DocumentAllEdit';
-import DocumentCustomized from './pages/document/DocumentCustomized';
+import CustomizedAgreement from './pages/document/CustomizedAgreement';
 
 import ProductInfo from './pages/product/ProductInfo';
 import ProductClassification from './pages/product/ProductClassification';
@@ -35,7 +35,7 @@ function Router() {
           <Route path="management" element={<DocumentManagement />} />
           <Route path="edit" element={<DocumentCreateAndEdit />} />
           <Route path="allEdit" element={<DocumentAllEdit />} />
-          <Route path="customized" element={<DocumentCustomized />} />
+          <Route path="customized" element={<CustomizedAgreement />} />
         </Route>
 
         <Route path="/:product/*">
@@ -45,10 +45,10 @@ function Router() {
         </Route>
 
         <Route path="/:template/*">
-          <Route path="disease" element={<DiseaseTypeTable />} />
-          <Route path="insurance" element={<InsuranceAgreement />} />
-          <Route path="law" element={<LawTypeTable />} />
           <Route path="treaty" element={<TreatyManagement />} />
+          <Route path="disease" element={<DiseaseTypeTable />} />
+          <Route path="law" element={<LawTypeTable />} />
+          <Route path="insurance" element={<InsuranceAgreement />} />
         </Route>
 
         <Route path="/organization" element={<Organization />} />
