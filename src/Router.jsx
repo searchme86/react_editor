@@ -1,18 +1,28 @@
 import React from 'react';
-
 import { Routes, Route } from 'react-router';
 
 import Layout from './Layout';
 
-import Login from './Pages/Login';
-import Home from './Pages/Home';
-import Document from './Pages/Document/Document';
-import Product from './Pages/Product/Product';
-import Template from './Pages/Template/Template';
-import Organization from './Pages/Organization/Organization';
-import User from './Pages/User/User';
-import Settings from './Pages/Settings/Settings';
-import Missing from './Pages/Missing';
+import DocumentManagement from './pages/document/DocumentManagement';
+import DocumentCreateAndEdit from './pages/document/DocumentCeateAndEdit';
+import DocumentAllEdit from './pages/document/DocumentAllEdit';
+import DocumentCustomized from './pages/document/DocumentCustomized';
+
+import ProductInfo from './pages/product/ProductInfo';
+import ProductClassification from './pages/product/ProductClassification';
+import ProductItem from './pages/product/ProductItem';
+
+import DiseaseTypeTable from './pages/template/DiseaseTypeTable';
+import InsuranceAgreement from './pages/template/InsuranceAgreement';
+import LawTypeTable from './pages/template/LawTypeTable';
+import TreatyManagement from './pages/template/TreatyManagement';
+
+import Login from './pages/Login';
+import Home from './pages/Home';
+import Organization from './pages/organization/Organization';
+import User from './pages/user/User';
+import Settings from './pages/settings/Settings';
+import Missing from './pages/Missing';
 
 function Router() {
   return (
@@ -20,9 +30,27 @@ function Router() {
       <Route path="/login" element={<Login />} />
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/document" element={<Document />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/template" element={<Template />} />
+
+        <Route path="/:document/*">
+          <Route path="management" element={<DocumentManagement />} />
+          <Route path="edit" element={<DocumentCreateAndEdit />} />
+          <Route path="allEdit" element={<DocumentAllEdit />} />
+          <Route path="customized" element={<DocumentCustomized />} />
+        </Route>
+
+        <Route path="/:product/*">
+          <Route path="info" element={<ProductInfo />} />
+          <Route path="class" element={<ProductClassification />} />
+          <Route path="item" element={<ProductItem />} />
+        </Route>
+
+        <Route path="/:template/*">
+          <Route path="disease" element={<DiseaseTypeTable />} />
+          <Route path="insurance" element={<InsuranceAgreement />} />
+          <Route path="law" element={<LawTypeTable />} />
+          <Route path="treaty" element={<TreatyManagement />} />
+        </Route>
+
         <Route path="/organization" element={<Organization />} />
         <Route path="/user" element={<User />} />
         <Route path="/settings" element={<Settings />} />
